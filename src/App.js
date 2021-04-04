@@ -15,11 +15,16 @@ const AVAILABLE_RESOURCES = [
 
 
 function App() {
+
+    //Task 1 (create select component, checkbox, radio) - controlled
+
     const [color, setColor] = React.useState('green');
 
     const [checkedTask, setCheckedTask] = React.useState(false);
 
     const [radio, setRadio] = React.useState('apple');
+
+    //Task 2 - controlled
 
     const [endpoint, setEndpoint] = React.useState ('');
     const [itemId, setItemId] = React.useState('');
@@ -29,15 +34,13 @@ function App() {
     const [items, setItems] = React.useState([]);
     const [singleElement, setSingleElement] = React.useState(null);
 
+    //validation:
     const onSubmit = () => {
-
-
         if(!endpoint) {
             return setErrorMessage('first input is required')
         }
         if(!AVAILABLE_RESOURCES.includes(endpoint.trim().toLowerCase())) {
             return setErrorMessage('value is not valid, try to use smth else')
-
         }
 
         const idToNum = Number(itemId)
@@ -66,13 +69,12 @@ function App() {
         }
         setSingleElement(null)
         setItems (data)
-
     }
 
 
   return (
     <div className="App">
-
+        {/*//Task 1*/}
           <label>
               Color is: {color}
               <br/>
@@ -109,6 +111,7 @@ function App() {
                onChange={(e) => {setRadio(e.target.value)}}/>
         <br/>
 
+        {/*//Task 2*/}
         <>
             <br/>
             <br/>
